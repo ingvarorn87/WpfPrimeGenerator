@@ -7,33 +7,7 @@ namespace Primes
 {
     class PrimeGenerator
     {
-        public List<long> GetPrimesSequential(long first, long last)
-        {
-            List<long> primes = new List<long>();
-            List<long> result = new List<long>();
-            bool quit = false;
-            if (last >= 2) primes.Add(2);
-            if (2 <= last && 2 >= first) result.Add(2);
-            long currentNumber = 3;
-
-            while (!quit)
-            {
-                if (Console.KeyAvailable)
-                    quit = Console.ReadKey().Key == ConsoleKey.Escape;
-
-                if (CheckIfPrimeSequential(currentNumber, primes))
-                {
-                    primes.Add(currentNumber);
-                    if (currentNumber <= last && currentNumber >= first) result.Add(currentNumber);
-                }
-                if (currentNumber < last)
-                    currentNumber += 2;
-                else
-                    break;
-            }
-
-            return result;
-        }
+        
 
 
         public List<long> GetPrimesParallel(long first, long last)
@@ -59,6 +33,33 @@ namespace Primes
 
                 if (currentNumber < last)
                     currentNumber += 2;
+                else
+                    break;
+            }
+
+            return result;
+        }
+        public List<long> GetPrimesSequential(long first, long last)
+        {
+            List<long> primes = new List<long>();
+            List<long> result = new List<long>();
+            bool stopCalc = false;
+            if (last >= 2) primes.Add(2);
+            if (2 <= last && 2 >= first) result.Add(2);
+            long currentNum = 3;
+
+            while (!stopCalc)
+            {
+                if (Console.KeyAvailable)
+                    stopCalc = Console.ReadKey().Key == ConsoleKey.Escape;
+
+                if (CheckIfPrimeSequential(currentNum, primes))
+                {
+                    primes.Add(currentNum);
+                    if (currentNum <= last && currentNum >= first) result.Add(currentNum);
+                }
+                if (currentNum < last)
+                    currentNum += 2;
                 else
                     break;
             }
