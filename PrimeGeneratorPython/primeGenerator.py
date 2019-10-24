@@ -1,8 +1,8 @@
 
 
-
+# Generator of prime numbers
 def prime_generator(init,final):
-        """ Utiliza una funcion interna para comprobar si n es primo"""
+        # Use an internal function to check if n is Prime
         def isPrime(n):
                 if n <= 1:
                         return False
@@ -19,12 +19,11 @@ def prime_generator(init,final):
                 n += 1
 
 
-# Utilizar el generador para iterar por los n�mero primos:
-
+# Use the generator to iterate through the prime numbers:
 def main():
     
-    init = int(input('\n\nEnter init Range Number: '))
-    final = int(input('\n\nEnter end Range Number: '))
+    init = int(input('\n\nEnter Initial Range Number: '))
+    final = int(input('\n\nEnter Final Range Number: '))
 
     for n in prime_generator(init, final):
             print (n,end=" ")
